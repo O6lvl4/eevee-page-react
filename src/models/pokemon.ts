@@ -7,9 +7,9 @@ export declare class Pokemon {
 }
 
 export declare class PokemonName {
-    readonly jp: String
-    readonly en: String
-    readonly romajiNotation: String
+    readonly jp: string
+    readonly en: string
+    readonly romajiNotation: string
 }
 
 export enum PokemonGender {
