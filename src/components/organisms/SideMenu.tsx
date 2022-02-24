@@ -14,9 +14,13 @@ export const SideMenu: React.FC<SideMenuProps> = (props) => {
     <Drawer
       anchor="left"
       variant="permanent"
+      PaperProps={{
+
+      }}
       style={{
         width: drawerWidth,
         flexShrink: 0,
+        backgroundColor: "red",
       }}
       open
     >
@@ -28,7 +32,7 @@ export const SideMenu: React.FC<SideMenuProps> = (props) => {
               <ListItemIcon>
                 <img width={40} height={40} src={"https://img.pokemondb.net/sprites/sword-shield/icon/" + pokemon.name.en.toLowerCase() + ".png"} />
               </ListItemIcon>
-              <ListItemText primary={pokemon.name.jp} />
+              <ListItemText primary={pokemon.name.en} />
             </ListItemButton>
           );
         })}
