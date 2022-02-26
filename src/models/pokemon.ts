@@ -8,12 +8,12 @@ export class Pokemon {
         en: PokemonSize,
     }
     evolutions: Array<Pokemon>
-    constructor(inner: PokemonResponse) {
-        this.globalPokedexNumber = inner.globalPokedexNumber;
-        this.name = inner.name;
-        this.genderPatterns = inner.genderPatterns;
-        this.size = inner.size;
-        this.evolutions = inner.evolutions.map((p) => {
+    constructor(data: PokemonResponse) {
+        this.globalPokedexNumber = data.globalPokedexNumber;
+        this.name = data.name;
+        this.genderPatterns = data.genderPatterns;
+        this.size = data.size;
+        this.evolutions = data.evolutions.map((p) => {
             return new Pokemon(p)
         });
     }
@@ -28,7 +28,7 @@ export class Pokemon {
                 var feetAndInch = String(h.value).split(".")
                 var feet = feetAndInch[0];
                 var inch = feetAndInch[1];
-                return `${feet}' ${inch}"`;
+                return `${feet}' ${inch ?? '00'}"`;
         }
     }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Drawer, Toolbar } from "@mui/material";
-import { Pokemon, PokemonSize } from "../../models/pokemon";
-import { MenuList } from "../molecules/MenuList"
+import { Pokemon } from "../../models/pokemon";
+import { MenuList } from "../molecules/MenuList";
 
 export interface SideMenuProps {
   currentPath: string;
