@@ -5,9 +5,13 @@ import { PokemonNameBox } from '../organisms/PokemonNameBox';
 import { useParams } from 'react-router-dom';
 
 const PokemonImage = (p: Pokemon, sx: SxProps<Theme>): JSX.Element => {
-    const imageURL = `https://img.pokemondb.net/sprites/sword-shield/normal/${p.name.en.toLowerCase()}.png`;
+    // const imageGifURL = `https://projectpokemon.org/images/normal-sprite/${p.name.en.toLowerCase()}.gif`
+    const imagePixelURL = `https://img.pokemondb.net/sprites/sword-shield/normal/${p.name.en.toLowerCase()}.png`;
     return (
-        <Box component="img" sx={sx} src={imageURL} />
+        <Box component="img" sx={{
+            ...sx,
+            objectFit: "contain",
+        }} src={imagePixelURL} />
     );
 }
 
@@ -37,9 +41,10 @@ export const PokemonContentPage: React.FC<PokemonContentPageProps> = (props) => 
                         width: "50%",
                         display: "flex",
                         justifyContent: "center",
+                        mt: -15,
                     }}>
                         {PokemonImage(p, {
-                            marginBottom: 10,
+                            width: 400,
                         })}
                     </Box>
                     <Box flexGrow={1} sx={{
