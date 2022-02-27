@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-eeveepagereact-dev-90108-authRole",
+      "UnauthRoleArn": "arn:aws:iam::981377450937:role/amplify-eeveepagereact-dev-90108-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::981377450937:role/amplify-eeveepagereact-dev-90108-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-eeveepagereact-dev-90108-deployment",
+      "UnauthRoleName": "amplify-eeveepagereact-dev-90108-unauthRole",
+      "StackName": "amplify-eeveepagereact-dev-90108",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:981377450937:stack/amplify-eeveepagereact-dev-90108/5fe2dac0-9760-11ec-95cf-0e1dc65fece7",
+      "AmplifyAppId": "d3vzczm7ljz0cm"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3vzczm7ljz0cm",
+          "type": "manual"
+        }
+      }
+    }
+  }
+}
