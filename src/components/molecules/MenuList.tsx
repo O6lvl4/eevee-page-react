@@ -21,10 +21,9 @@ export const MenuList: React.FC<MenuListProps> = (props) => {
           navigate('/eevees/' + item.key.toLowerCase());
         }}>
         <ListItemIcon>
-            {/* <img width={40} height={40} src={item.iconURL} /> */}
             <Box component="img" sx={{
-            objectFit: "contain",
-        }} src={item.iconURL} />
+              objectFit: "contain",
+            }} src={item.iconURL} />
         </ListItemIcon>
         <ListItemText primary={item.name} />
         </ListItemButton>

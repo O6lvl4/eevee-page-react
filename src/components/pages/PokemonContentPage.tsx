@@ -67,6 +67,7 @@ export const PokemonContentPage: React.FC<PokemonContentPageProps> = (props) => 
                                 <PokemonNameBox pokemon={pokemon} sx={{
                                     height: "60%",
                                     width: "100%",
+                                    maxWidth: 400,
                                     mt: isMobile ? 0 : 20,
                                     mr: 2, ml: 2,
                                 }} />
