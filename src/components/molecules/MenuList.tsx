@@ -1,5 +1,5 @@
 import React from "react";
-import { List, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { Box, List, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 
 export interface MenuListProps {
@@ -18,10 +18,13 @@ export const MenuList: React.FC<MenuListProps> = (props) => {
     {props.items.map((item) => {
     return (
         <ListItemButton key={item.key} onClick={ () => {
-          navigate('/eevees/' + item.name.toLowerCase());
+          navigate('/eevees/' + item.key.toLowerCase());
         }}>
         <ListItemIcon>
-            <img width={40} height={40} src={item.iconURL} />
+            {/* <img width={40} height={40} src={item.iconURL} /> */}
+            <Box component="img" sx={{
+            objectFit: "contain",
+        }} src={item.iconURL} />
         </ListItemIcon>
         <ListItemText primary={item.name} />
         </ListItemButton>

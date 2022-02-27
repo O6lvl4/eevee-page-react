@@ -52,12 +52,15 @@ const PokemonName = (p: Pokemon, sx: SxProps<Theme>): JSX.Element => {
                 mt: 2
             }} />
             <Box display="flex" sx={{
-                fontSize: 40
+                fontSize: 40,
             }}>
                 {p.genderPatterns.map((pattern) => {
                     return GenderSymbol(pattern)
                 })}
             </Box>
+            <Box sx={{
+                mt: 2
+            }} />
         </Box>
     );
 };

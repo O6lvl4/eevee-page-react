@@ -1,16 +1,17 @@
 import React from "react";
-import { Drawer, Toolbar } from "@mui/material";
+import { Drawer, Toolbar, Theme, useMediaQuery, useTheme } from "@mui/material";
 import { Pokemon } from "../../models/pokemon";
 import { MenuList } from "../molecules/MenuList";
+
 
 export interface SideMenuProps {
   currentPath: string;
   pokemons: Array<Pokemon>;
 }
 
-const drawerWidth = 240;
-
 export const SideMenu: React.FC<SideMenuProps> = (props) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery<Theme>(theme.breakpoints.down('sm'));
   return (
     <Drawer
       anchor="left"
@@ -19,17 +20,16 @@ export const SideMenu: React.FC<SideMenuProps> = (props) => {
 
       }}
       style={{
-        width: drawerWidth,
+        width: isMobile ? 80 : 240,
         flexShrink: 0,
-        backgroundColor: "red",
       }}
       open
     >
       <Toolbar />
-      <MenuList width={drawerWidth} items={props.pokemons.map((pokemon) => {
+      <MenuList width={isMobile ? 80 : 240} items={props.pokemons.map((pokemon) => {
         return {
           key: pokemon.name.en,
-          name: pokemon.name.en,
+          name: isMobile ? "" : pokemon.name.en,
           iconURL: "https://img.pokemondb.net/sprites/sword-shield/icon/" + pokemon.name.en.toLowerCase() + ".png"
         }
       })} />

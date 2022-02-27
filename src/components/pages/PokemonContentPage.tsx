@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, SxProps, Theme } from '@mui/material';
+import { Box, Grid, SxProps, Theme, useMediaQuery, useTheme } from '@mui/material';
 import { Pokemon } from '../../models/pokemon';
 import { PokemonNameBox } from '../organisms/PokemonNameBox';
 import { useParams } from 'react-router-dom';
@@ -20,10 +20,15 @@ export interface PokemonContentPageProps {
 }
 
 export const PokemonContentPage: React.FC<PokemonContentPageProps> = (props) => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery<Theme>(theme.breakpoints.down('sm'));
     const params = useParams<{name: string}>();
-    const p = props.pokemons.filter((p) => {
-        return params.name === p.name.en.toLowerCase()
-    })[0];
+    const pokemon = props.pokemons.filter(p => p.name.en.toLowerCase() === params.name)[0];
+    if (!pokemon) {
+        return (
+            <Box>Not Found</Box>
+        )
+    }
     return (
         <Box>
             <Box sx={{
@@ -32,33 +37,42 @@ export const PokemonContentPage: React.FC<PokemonContentPageProps> = (props) => 
                 display: "flex",
             }}>
                 <Box sx={{
-                    maxWidth: 1000,
-                    width: 1000,
+                    maxWidth: "100%",
+                    width: "100%",
                     display: "flex",
                     justifyContent: "center",
                 }}>
-                    <Box flexGrow={1} sx={{
-                        width: "50%",
-                        display: "flex",
-                        justifyContent: "center",
-                        mt: -15,
+                    <Grid container spacing={0} sx={{
+                        minHeight: "50vh"
                     }}>
-                        {PokemonImage(p, {
-                            width: 400,
-                        })}
-                    </Box>
-                    <Box flexGrow={1} sx={{
-                        width: "50%",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        mt: 2
-                    }}>
-                        <PokemonNameBox pokemon={p} sx={{
-                            height: "60%",
-                            width: "100%",
-                        }} />
-                    </Box>
+                        <Grid item xs={12} md={6}>
+                            <Box sx={{
+                                width: "100%",
+                                display: "flex",
+                                justifyContent: isMobile ? "center" : "end",
+                            }}>
+                                {PokemonImage(pokemon, {
+                                    width: isMobile ? "300px" :"80%",
+                                    maxWidth: 400,
+                                })}
+                            </Box>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <Box sx={{
+                                width: "100%",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                            }}>
+                                <PokemonNameBox pokemon={pokemon} sx={{
+                                    height: "60%",
+                                    width: "100%",
+                                    mt: isMobile ? 0 : 20,
+                                    mr: 2, ml: 2,
+                                }} />
+                            </Box>
+                        </Grid>
+                    </Grid>
                 </Box>
             </Box>
             <Box sx={{
