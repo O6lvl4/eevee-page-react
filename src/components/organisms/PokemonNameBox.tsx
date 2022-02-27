@@ -37,7 +37,12 @@ const PokemonName = (p: Pokemon, sx: SxProps<Theme>): JSX.Element => {
                 fontWeight: "bold"
             }} variant="h5">
                 {p.name.en}<br />
-                {p.name.jp} ({p.name.romajiNotation})<br />
+                {p.name.jp}
+            </Typography>
+            <Typography sx={{
+                fontWeight: "bold"
+            }} variant="h6">
+                ({p.name.romajiNotation})
             </Typography>
             <Box sx={{
                 mt: 1
