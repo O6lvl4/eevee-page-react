@@ -13,8 +13,6 @@ const PokemonImage = (p: Pokemon, sx: SxProps<Theme>): JSX.Element => {
         <Box component="img" sx={{
             ...sx,
             objectFit: "contain",
-            maxHeight: 300,
-            minWidth: 200,
         }} src={imagePixelURL} />
     );
 }
@@ -57,9 +55,9 @@ export const PokemonContentPage: React.FC<PokemonContentPageProps> = (props) => 
                                 justifyContent: isMobile ? "center" : "center",
                             }}>
                                 {PokemonImage(pokemon, {
-                                    width: isMobile ? "300px" :"80%",
-                                    mt: isMobile ? 5 : 10,
-                                    maxWidth: 400,
+                                    width:400,
+                                    minWidth: 400,
+                                    mt: isMobile ? 5 : -5,
                                 })}
                             </Box>
                         </Grid>
@@ -73,7 +71,7 @@ export const PokemonContentPage: React.FC<PokemonContentPageProps> = (props) => 
                                 <PokemonNameBox pokemon={pokemon} sx={{
                                     width: "100%",
                                     maxWidth: 400,
-                                    mt: isMobile ? 0 : 10,
+                                    mt: isMobile ? 5 : 10,
                                     mr: 2, ml: 2,
                                 }} />
                             </Box>
